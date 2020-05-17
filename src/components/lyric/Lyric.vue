@@ -15,7 +15,6 @@
 export default {
   data() {
     return {
-      //   srcStrList: ""
       lrcObjList: [],
       activeIndex: 0
     };
@@ -24,20 +23,16 @@ export default {
     lrcUrl: String
   },
   created() {
-    // this.getLyricList();
   },
 
   methods: {
     //歌词接口
     getLyricList() {
-      // const lrcObjList = []
-      //   console.log(this.lrcUrl);
       const lyricListUrl = `/music-url/data/song/lrc?lrc_link=${this.lrcUrl}`;
       this.$axios
         .get(lyricListUrl)
         .then(result => {
-          //   console.log(result);
-          //将获取到的字符串转换成字符串数组
+          //获取到的字符串转换成字符串数组
           const srcStrList = result.data.content.split("\n");
           //遍历字符串数组，对每一项进行处理
           srcStrList.forEach(item => {
@@ -78,10 +73,8 @@ export default {
     playNow(time){
       console.log(time)
       this.$store.commit("changeProssTime",{prossTime:time})
-
     }
   },
-
   //通过计算属性获取store里面的currentTime
   computed: {
     currentTime() {
@@ -97,8 +90,6 @@ export default {
       }
     },
     currentTime() {
-      
-      // debugger
       for (let i = 1; i < this.lrcObjList.length; i++) {
         if (this.currentTime < this.lrcObjList[i].time) {
           //已经找到歌词位置
@@ -106,7 +97,7 @@ export default {
           //激活dom对象，通过dom对象的offset的属性，获取它与顶部的距离
           this.$refs.lrcBox.scrollTop =
           
-            this.$refs.lrcBox.children[this.activeIndex].offsetTop-50;
+            this.$refs.lrcBox.children[this.activeIndex].offsetTop-70;
           break;
         }
       }

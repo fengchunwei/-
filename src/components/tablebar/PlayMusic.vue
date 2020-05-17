@@ -115,8 +115,25 @@ export default {
   watch: {
     prossTime() {
       this.$refs.audio.currentTime = this.prossTime;
+      
+    },
+    // 'titleTop.title'(){
+    //   // debugger
+    //   if(this.titleTop.title){
+    //     document.title = this.titleTop.title
+
+    //   }
+    // }
+    titleTop:{
+      deep:true,
+      handler(){
+        if(this.titleTop.title){
+        document.title = this.titleTop.title
+        }
+      }
     }
   }
+
 };
 </script>
 <style scoped>

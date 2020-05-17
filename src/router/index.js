@@ -50,7 +50,7 @@ export default new Router({
     {
       path: '/DayList/:type/:title', component: DayList, name: 'toDayList',
       meta: {
-        sitetitle: '更多列表'
+        signtitle: '更多列表'
       }
     },
     { path: '/Musicers/:ting_uid', component: Musicers },

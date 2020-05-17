@@ -13,8 +13,8 @@
       <ul>
         <li v-for="item in resultList" :key="item.id">
           <router-link :to="'/PlayMusic/'+item.songid">
-            <span style="font-size:14px">歌名：{{item.songname}}</span>
-            <span style="font-size:12px;width=100px;">作者：{{item.artistname}}</span>
+            <span style="font-size:14px">{{item.songname}}</span>
+            <span style="font-size:12px;width=100px;">{{item.artistname}}</span>
           </router-link>
         </li>
       </ul>
